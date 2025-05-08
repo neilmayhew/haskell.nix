@@ -399,7 +399,7 @@ let
     meta = {
       homepage = package.homepage or "";
       description = package.synopsis or "";
-      license = haskellLib.cabalToNixpkgsLicense package.license;
+      license = haskellLib.cabalToNixpkgsLicense (package.license or "");
       platforms = if platforms == null then lib.platforms.all else platforms;
     } // lib.optionalAttrs (haskellLib.isExecutableType componentId) {
       # Set main executable name for executable components, so that `nix run` in
